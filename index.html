@@ -77,8 +77,11 @@
         await liff.sendMessages([
           {
             "type": "text",
-            "stickerId": 1,
             "text": "Hello, World!",
+          },
+          {
+            "type": "sticker",
+            "stickerId": 1,
             "packageId": 1
           }
         ])
