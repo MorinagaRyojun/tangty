@@ -42,7 +42,7 @@
     console.log("Hello World!")
   </script> -->
 
-  <!-- <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
     }
@@ -75,12 +75,29 @@
     }
 
     function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("isInClient").append(liff.isInClient())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("pictureUrl").src = liff.getProfile().pictureUrl
+      document.getElementById("userId").append(liff.getProfile().userId)
+      document.getElementById("displayName").append(liff.getProfile().displayName)
+      document.getElementById("statusMessage").append(liff.getProfile().statusMessage)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
+      document.getElementById("friendship").append(liff.isFriendship())
+      document.getElementById("scanCode").append(liff.scanCode())
     }
 
     async function main() {
       alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "YOUR-LIFF-ID" })
-      // getEnvironment()
+      await liff.init({ liffId: "2000927154-VXWkXelz" })
+      getEnvironment()
       // getUserProfile()
       // getContext()
       // getFriendship()
